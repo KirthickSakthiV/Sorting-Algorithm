@@ -1,0 +1,39 @@
+write a java program to sort an array using bubble sorting technique
+
+Input: 
+6
+10 8 6 4 2 0
+
+Output:
+0 2 4 6 8 10
+
+
+
+
+import java.util.*;
+public class Main{
+  public static void main(String args[]){
+    Scanner sc=new Scanner(System.in);
+    int n=sc.nextInt();
+    int a[]=new int [n];
+    for(int i=0;i<n;i++){
+      a[i]=sc.nextInt();
+    }
+    bubbleSort(a,n);
+    for(int k=0;k<n;k++){
+      System.out.print(a[k]+" ");
+      
+    }
+  }
+  static void bubbleSort(int a[],int n){
+    for(int k=0;k<n-1;k++){
+      for(int i=0;i<n-k-1;i++){
+        if(a[i]>a[i+1]){
+          int temp=a[i];
+          a[i]=a[i+1];
+          a[i+1]=temp;
+        }
+      }
+    }
+  }
+}
