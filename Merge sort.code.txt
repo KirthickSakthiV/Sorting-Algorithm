@@ -1,0 +1,57 @@
+Implement Mergesort Algorithm
+
+Input:
+7
+15 26 56 6 65 74 21
+
+Output:
+6 15 21 26 56 65 74
+
+
+
+import java.util.*;
+class Quicksort{
+    static int partition(int a[],int start,int end){
+        int pivot=a[end];
+        int pi=start-1;
+        for(int i=start;i<end;i++){
+            if(a[i]<pivot){
+                ++pi;
+                swap(a,i,pi);
+            }
+        }
+        ++pi;
+        swap(a,pi,end);
+        return pi;
+    }
+    static void swap(int a[],int i,int j){
+        int t;
+        t=a[i];
+        a[i]=a[j];
+        a[j]=t;
+    }
+    static void quicksort(int a[],int start,int end){
+        if(start<end){
+            int pi=partition(a,start,end);
+            quicksort(a,start,pi-1);
+            quicksort(a,pi+1,end);
+        }
+    }
+    public static void main(String args[]){
+        Scanner m=new Scanner(System.in);
+        int n;
+        System.out.print("enter the no of elements in array:");
+        n=m.nextInt();
+        int a[]=new int[n];
+        System.out.print("enter the array elements:");
+        for(int i=0;i<n;i++){
+            a[i]=m.nextInt();
+        }
+        quicksort(a,0,n-1);
+        for(int i=0;i<n;i++){
+            System.out.print(a[i]+" ");
+        }
+    }
+}
+
+	
